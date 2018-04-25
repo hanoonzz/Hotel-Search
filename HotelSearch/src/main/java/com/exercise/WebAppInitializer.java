@@ -16,7 +16,8 @@ public class WebAppInitializer implements WebApplicationInitializer {
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		WebApplicationContext context = getContext();
 		servletContext.addListener(new ContextLoaderListener(context));
-		ServletRegistration.Dynamic dispacher = servletContext.addServlet("DispacherServlet", new DispatcherServlet(context));
+		ServletRegistration.Dynamic dispacher = servletContext.addServlet("DispacherServlet",
+				new DispatcherServlet(context));
 		dispacher.setLoadOnStartup(1);
 		dispacher.addMapping("*.html");
 	}
