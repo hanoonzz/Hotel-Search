@@ -20,6 +20,9 @@ public class WebAppInitializer implements WebApplicationInitializer {
 				new DispatcherServlet(context));
 		dispacher.setLoadOnStartup(1);
 		dispacher.addMapping("*.html");
+		dispacher.addMapping("*.css");
+		dispacher.addMapping("*.js");
+
 	}
 
 	private AnnotationConfigWebApplicationContext getContext() {
