@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.exercise.model.HotelFilter;
-import com.pluralsight.model.Goal;
 
 @Controller
 public class HotelController {
