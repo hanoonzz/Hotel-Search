@@ -84,18 +84,18 @@
         <mkdir dir="target/classes"/>
         <mkdir dir="target/test-classes"/>
         <copy includeemptydirs="false" todir="target/classes">
-            <fileset dir="src/main/java">
+            <fileset dir="HotelSearch/src/main/java">
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
         <copy includeemptydirs="false" todir="target/classes">
-            <fileset dir="src/main/resources">
+            <fileset dir="HotelSearch/src/main/resources">
                 <exclude name="**/*.java"/>
                 <exclude name="**"/>
             </fileset>
         </copy>
         <copy includeemptydirs="false" todir="target/test-classes">
-            <fileset dir="src/test/java">
+            <fileset dir="HotelSearch/src/test/java">
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
@@ -116,7 +116,7 @@
             <classpath refid="HotelSearch.classpath"/>
         </javac>
         <javac debug="true" debuglevel="${debuglevel}" destdir="target/test-classes" includeantruntime="false" source="${source}" target="${target}">
-            <src path="src/test/java"/>
+            <src path="HotelSearch/src/test/java"/>
             <classpath refid="HotelSearch.classpath"/>
         </javac>
     </target>
