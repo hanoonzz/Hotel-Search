@@ -22,7 +22,7 @@ public class ExternalApiService implements IExternalApiService {
 	private String charset = java.nio.charset.StandardCharsets.UTF_8.name();
 
 	@Override
-	public void getHotelOffers(HotelFilter filter) {
+	public String getHotelOffers(HotelFilter filter) {
 
 		// Create an instance of SimpleDateFormat used for formatting
 		// the string representation of date (year-month-day)
@@ -65,7 +65,8 @@ public class ExternalApiService implements IExternalApiService {
 					Integer.toString(filter.getMaxGuestRating()));
 		}
 		String query = stringBuilder.toString();
-		callApi(query);
+		String response = callApi(query);
+		return response;
 
 	}
 
@@ -76,7 +77,7 @@ public class ExternalApiService implements IExternalApiService {
 		sb.append(paramVlaue);
 	}
 
-	private void callApi(String query) {
+	private String callApi(String query) {
 		// Build URL
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(apiConfigService.getApiUrl());
@@ -97,11 +98,13 @@ public class ExternalApiService implements IExternalApiService {
 			InputStream response = connection.getInputStream();
 			try (Scanner scanner = new Scanner(response)) {
 				String responseBody = scanner.useDelimiter("\\A").next();
-				System.out.println(responseBody);
+				return responseBody;
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		}
 	}
+
 }

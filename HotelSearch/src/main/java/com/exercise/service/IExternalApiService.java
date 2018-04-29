@@ -4,6 +4,6 @@ import com.exercise.model.HotelFilter;
 
 public interface IExternalApiService {
 
-	void getHotelOffers(HotelFilter filter);
+	String getHotelOffers(HotelFilter filter);
 
 }
