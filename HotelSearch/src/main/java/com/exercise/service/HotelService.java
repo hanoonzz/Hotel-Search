@@ -19,10 +19,10 @@ public class HotelService implements IHotelService {
 
 	public List<HotelOffer> findOffers(HotelFilter filter) {
 		String results = apiService.getHotelOffers(filter);
+		System.out.println(results);
 		if (results == null)
 			return null;
 		return parseResponse(results);
-
 	}
 
 	private List<HotelOffer> parseResponse(String response) {
@@ -42,6 +42,7 @@ public class HotelService implements IHotelService {
 			}
 			return hotels;
 		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return null;
 	}
@@ -59,11 +60,13 @@ public class HotelService implements IHotelService {
 			offer.setDestiationName(destinationJSON.getString("shortName"));
 			offer.setHotelName(hotelInfo.getString("hotelName"));
 			offer.setHotelAddress(hotelInfo.getString("hotelLongDestination"));
-			offer.setGuestRating(hotelInfo.getString("hotelGuestReviewRating"));
-			offer.setStarRating(hotelInfo.getString("hotelStarRating"));
+			offer.setGuestRating(Double.toString(hotelInfo.getDouble("hotelGuestReviewRating")));
+			offer.setStarRating(Double.toString(hotelInfo.getDouble("hotelStarRating")));
 			offer.setImageUrl(hotelInfo.getString("hotelImageUrl"));
-			offer.setOfferPrice(priceInfo.getString("currency") + " " + priceInfo.getString("averagePriceValue"));
+			offer.setOfferPrice(priceInfo.getString("currency") + " " + priceInfo.getDouble("averagePriceValue"));
 		} catch (Exception e) {
+			e.printStackTrace();
+
 			offer=null;
 		}
 		return offer;
