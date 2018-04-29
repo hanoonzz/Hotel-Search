@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,10 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.exercise.model.HotelFilter;
+import com.exercise.service.IHotelService;
 
 @Controller
 public class HotelController {
 
+	@Autowired
+	private IHotelService hotelService;
+	
 	@RequestMapping(value = "hotel", method = RequestMethod.GET)
 	public String serachHotel(Model model) {
 		HotelFilter filter = new HotelFilter();
@@ -32,6 +37,7 @@ public class HotelController {
 	public String serachHotel(@Valid @ModelAttribute("hotelFilter") HotelFilter filter, BindingResult result) {		
 		System.out.println(filter.getDestination());
 	    System.out.println(filter.getStartDate().toString());
+	    hotelService.findOffers(filter);
 		return "redirect:index.jsp";
 	}
 	
