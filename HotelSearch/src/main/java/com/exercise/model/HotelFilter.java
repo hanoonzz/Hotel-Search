@@ -2,17 +2,28 @@ package com.exercise.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class HotelFilter {
 
 	private String destination;
+
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	private Date startDate;
+
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	private Date endDate;
-	private int lengthOfStay;
+	
 	private int minStarRating;
 	private int maxStarRating;
 	private int minGuestRating;
 	private int maxGuestRating;
 
+/*	public HotelFilter() {
+		startDate = new Date();
+		System.out.println(startDate.toString());
+	}
+*/
 	public String getDestination() {
 		return destination;
 	}
@@ -67,14 +78,6 @@ public class HotelFilter {
 
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
-	}
-
-	public int getLengthOfStay() {
-		return lengthOfStay;
-	}
-
-	public void setLengthOfStay(int lengthOfStay) {
-		this.lengthOfStay = lengthOfStay;
 	}
 
 }
