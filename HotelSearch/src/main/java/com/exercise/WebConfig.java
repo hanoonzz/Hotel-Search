@@ -3,6 +3,7 @@ package com.exercise;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.exercise")
+@PropertySource("classpath:apiConfig.properties")
 public class WebConfig implements WebMvcConfigurer {
 	
 	@Bean
@@ -21,10 +23,10 @@ public class WebConfig implements WebMvcConfigurer {
 		return resolver;
 	}
 	
-	public void addResourceHnadler(ResourceHandlerRegistry registry)
-	{
-		registry.addResourceHandler("/css/**").addResourceLocations("/assets/styles/");
-		registry.addResourceHandler("/js/**").addResourceLocations("/assets/scripts/");
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    	registry.addResourceHandler("/styles/**").addResourceLocations("/assets/styles/");
+		registry.addResourceHandler("/scripts/**").addResourceLocations("/assets/scripts/");
 
-	}
+    }
 }
