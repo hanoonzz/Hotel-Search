@@ -22,6 +22,8 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		dispacher.addMapping("*.html");
 		dispacher.addMapping("*.css");
 		dispacher.addMapping("*.js");
+		dispacher.addMapping("*.png");
+
 
 	}
 

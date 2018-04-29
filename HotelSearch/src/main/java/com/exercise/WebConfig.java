@@ -21,10 +21,10 @@ public class WebConfig implements WebMvcConfigurer {
 		return resolver;
 	}
 	
-	public void addResourceHnadler(ResourceHandlerRegistry registry)
-	{
-		registry.addResourceHandler("/css/**").addResourceLocations("/assets/styles/");
-		registry.addResourceHandler("/js/**").addResourceLocations("/assets/scripts/");
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    	registry.addResourceHandler("/styles/**").addResourceLocations("/assets/styles/");
+		registry.addResourceHandler("/scripts/**").addResourceLocations("/assets/scripts/");
 
-	}
+    }
 }
