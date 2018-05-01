@@ -20,6 +20,6 @@ also, this is my first time building web application with java and using spring 
 	*display the results
 	
 	
-###Additional info
-I tried using Travis CI for building, but the attempts were unsuccessful 
-there are building errors that I'm trying to solve
+###Tests 
+there is only one available test case 
+it was created to try testing and building with Travis CI 
