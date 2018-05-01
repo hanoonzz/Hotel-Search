@@ -9,54 +9,40 @@
 
 <head>
 <meta charset="utf-8">
-<title></title>
+<title>Flights</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Le styles -->
-<link href="../styles/bootstrap.css" rel="stylesheet">
-<style>
-body {
-	padding-top: 60px; /* 60px to make the container go all the way
-      to the bottom of the topbar */
-}
-</style>
-<link href="../styles/bootstrap-responsive.css" rel="stylesheet">
-<link href="../styles/jquery-ui/jquery-ui.css" rel="stylesheet">
 
-<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!-- Styles -->
+<link rel="stylesheet" href="../styles/bootstrap.min.css">
+<link rel="stylesheet" href="../styles/style.css">
+
+<!-- scripts -->
+<script src="../scripts/jquery.min.js"></script>
+<script src="../scripts/bootstrap.min.js"></script>
+<script src="../scripts/jquery-ui.js"></script>
+<script src="../scripts/app.js"></script>
+
+
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
       </script>
     <![endif]-->
-<!-- Le fav and touch icons -->
-<!--     <link rel="shortcut icon" href="assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"> -->
-<style>
-.error {
-	color: #ff0000;
-}
 
-.errorblock {
-	color: #000;
-	background-color: #ffEEEE;
-	border: 3px solid #ff0000;
-	padding: 8px;
-	margin: 16px;
-}
-</style>
+
 </head>
 <body>
-	<div class="navbar navbar-fixed-top navbar-inverse">
-		<div class="navbar-inner">
-			<div class="container">
-				<a class="brand" href="#"> Flight Search </a>
-				<ul class="nav">
-				</ul>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/HotelSearch/">Hotel Search</a>
 			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="../Hotel/hotel.html">Hotel Search</a></li>
+				<li><a href="../Flight/flight.html">Flight Search</a></li>
+			</ul>
 		</div>
-	</div>
+	</nav>
+
 	<div class="container">
 		<div>
 			<h1>Flight Search</h1>
@@ -70,10 +56,9 @@ body {
 
 			<label for="origin"> From </label>
 
-			<form:input name="origin" path="origin"
-				cssClass="form-control" />
-				
-				
+			<form:input name="origin" path="origin" cssClass="form-control" />
+
+
 			<label for="destination"> To </label>
 
 			<form:input name="destination" path="destination"
@@ -94,17 +79,5 @@ body {
 
 	</div>
 
-	<script src="../scripts/jquery-1.8.3.js">
-		
-	</script>
-	<script src="../scripts/bootstrap.js">
-		
-	</script>
-	<script src="../scripts/jquery-ui.js"></script>
-	<script type="text/javascript">
-		$(function() {
-			$(".date-picker").datepicker();
-		});
-	</script>
 </body>
 </html>

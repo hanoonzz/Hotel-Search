@@ -1,0 +1,28 @@
+@charset "ISO-8859-1";
+.abovebottom {
+	border-top-style: double;
+	border-bottom-style: double;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-top-color: #7cbfcf;
+	border-bottom-color: #7cbfcf;
+	border-top-width: 8px;
+	border-bottom-width: 8px;
+}
+
+body {
+	padding-top: 60px; /* 60px to make the container go all the way
+      to the bottom of the topbar */
+}
+
+.error {
+	color: #ff0000;
+}
+
+.errorblock {
+	color: #000;
+	background-color: #ffEEEE;
+	border: 3px solid #ff0000;
+	padding: 8px;
+	margin: 16px;
+}

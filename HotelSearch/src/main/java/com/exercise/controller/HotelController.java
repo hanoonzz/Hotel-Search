@@ -25,6 +25,7 @@ import com.exercise.model.HotelOffer;
 import com.exercise.service.IHotelService;
 
 @Controller
+@RequestMapping("/Hotel")
 public class HotelController {
 
 	@Autowired
@@ -35,7 +36,7 @@ public class HotelController {
 		HotelFilter filter = new HotelFilter();
 		model.addAttribute("hotelFilter", filter);
 		
-		return "hotel";
+		return "Hotel/hotel";
 	}
 	
 	@RequestMapping(value = "hotel", method = RequestMethod.POST)
@@ -50,7 +51,7 @@ public class HotelController {
 	@RequestMapping(value= "result")
 	public ModelAndView result(Model model)
 	{
-		ModelAndView modelAndView = new ModelAndView("result");
+		ModelAndView modelAndView = new ModelAndView("Hotel/result");
 		return modelAndView;
 	}
 	
