@@ -5,14 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link href="styles/jquery-ui/jquery-ui.css" rel="stylesheet">
-<link href="styles/bootstrap-responsive.css" rel="stylesheet">
+
+<!-- Styles -->
+<link rel="stylesheet" href="../styles/bootstrap.min.css">
+<link rel="stylesheet" href="../styles/style.css">
+
+<!-- scripts -->
+<script src="../scripts/jquery.min.js"></script>
+<script src="../scripts/bootstrap.min.js"></script>
+<script src="../scripts/jquery-ui.js"></script>
+
 <title>Hotel-Search</title>
 </head>
 <body>
@@ -24,7 +26,7 @@
 				</h1>
 				<p>What offers are you looking for today?</p>
 			</div>
-			<a class="btn btn-primary" href="hotel.html"> Hotels » </a>
+			<a class="btn btn-primary" href="Hotel/hotel.html"> Hotels » </a>
 
 			<a class="btn btn-primary" href="Flight/flight.html">Flights  » </a> 
 

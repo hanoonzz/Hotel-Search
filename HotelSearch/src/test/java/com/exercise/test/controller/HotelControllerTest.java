@@ -43,7 +43,7 @@ public class HotelControllerTest extends TestCase {
     @Test
     public void testGetSearchHotel() throws Exception {
 
-        mockMvc.perform(get("/hotel.html"))
+        mockMvc.perform(get("/Hotel/hotel.html"))
             .andExpect(status().isOk());
     }
 }
