@@ -53,7 +53,7 @@ body {
 	<div class="navbar navbar-fixed-top navbar-inverse">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="brand" href="/"> Hotel Search </a>
+				<a class="brand" href="/HotelSearch/"> Hotel Search </a>
 				<ul class="nav">
 				</ul>
 			</div>
@@ -66,24 +66,24 @@ body {
 				offers based on your search <br> &nbsp;
 			</p>
 		</div>
-		<c:forEach items="${offers}" var="hotel">
+		<c:forEach items="${offers}" var="flight">
 			<div class="row abovebottom">
-				<div class=col-md-2>
-					<img src="${hotel.imageUrl}" alt="${hotel.hotelName}" />
-				</div>
-				<div class="col-md-4">
-					<h3>${hotel.hotelName}</h3>
-					<h5>${hotel.hotelAddress}</h5>
-				</div>
-				<div class="col-md-3">
-					<h5>Guest Rating: ${hotel.guestRating }/5</h5>
-					<br />
-					<h5>Hotel starts: ${hotel.starRating }/5</h5>
+
+				<div class="col-md-6">
+					<h3>${flight.carrierName}</h3>
+					<h4>${flight.destiationAirport}</h4>
+					<h5>${flight.originCity}->${flight.destiationCity}</h5>
+					<h5>${flight.destiationCity}->${flight.originCity}</h5>
+
 				</div>
 				<div class="col-md-3">
-					<h4>Average Price</h4>
+					<h5>Departure Date: ${flight.departureDate}</h5>
 					<br />
-					<h4>${hotel.offerPrice }</h4>
+					<h5>Return Date: ${flight.returnDate}</h5>
+				</div>
+				<div class="col-md-3">
+					<br />
+					<h4>${flight.offerPrice }</h4>
 				</div>
 			</div>
 		</c:forEach>

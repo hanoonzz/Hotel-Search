@@ -3,7 +3,6 @@ package com.exercise.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -20,29 +19,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.exercise.model.HotelFilter;
+import com.exercise.model.FlightFilter;
+import com.exercise.model.FlightOffer;
 import com.exercise.model.HotelOffer;
-import com.exercise.service.IHotelService;
+import com.exercise.service.IFlightService;
 
 @Controller
-public class HotelController {
-
-	@Autowired
-	private IHotelService hotelService;
+@RequestMapping("/Flight")
+public class FlightController {
 	
-	@RequestMapping(value = "hotel", method = RequestMethod.GET)
-	public String serachHotel(Model model) {
-		HotelFilter filter = new HotelFilter();
-		model.addAttribute("hotelFilter", filter);
+	@Autowired
+	private IFlightService flightService;
+	
+	@RequestMapping(value = "flight", method = RequestMethod.GET)
+	public String serachFlights(Model model) {
+		FlightFilter filter = new FlightFilter();
+		model.addAttribute("flightFilter", filter);
 		
-		return "hotel";
+		return "Flight/flight";
 	}
 	
-	@RequestMapping(value = "hotel", method = RequestMethod.POST)
-	public String serachHotel(@Valid @ModelAttribute("hotelFilter") HotelFilter filter, BindingResult result,RedirectAttributes redir) {		
+	@RequestMapping(value = "flight", method = RequestMethod.POST)
+	public String serachFlights(@Valid @ModelAttribute("flightFilter") FlightFilter filter, BindingResult result,RedirectAttributes redir) {		
 
-	    List<HotelOffer> offers= hotelService.findOffers(filter);
-	    System.out.println(offers.size());
+	    List<FlightOffer> offers= flightService.findOffers(filter);
 	    redir.addFlashAttribute("offers" , offers);
 		return "redirect:result.html";
 	}
@@ -50,7 +50,7 @@ public class HotelController {
 	@RequestMapping(value= "result")
 	public ModelAndView result(Model model)
 	{
-		ModelAndView modelAndView = new ModelAndView("result");
+		ModelAndView modelAndView = new ModelAndView("Flight/result");
 		return modelAndView;
 	}
 	
@@ -63,4 +63,5 @@ public class HotelController {
         sdf.setLenient(true);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
     }
+
 }

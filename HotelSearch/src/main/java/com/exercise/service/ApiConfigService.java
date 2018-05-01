@@ -56,10 +56,13 @@ public class ApiConfigService implements IApiConfigService {
 	
 	@Value("${maxGuestRatingParam}")
 	private String maxGuestRatingParam;
-
-	public String getMaxGuestRatingParam() {
-		return maxGuestRatingParam;
-	}
+	
+	@Value("${originCity}")
+	private String originCityParam;
+	
+	@Value("${flightProductType}")
+	private String FlightProductType;
+	
 
 	public String getApiUrl() {
 		return apiUrl;
@@ -78,12 +81,20 @@ public class ApiConfigService implements IApiConfigService {
 		return destniationParamName;
 	}
 
+	public String getFlightProductType() {
+		return FlightProductType;
+	}
+
 	public String getHotelProductType() {
 		return HotelProductType;
 	}
 
 	public String getLengthOfStayParam() {
 		return lengthOfStayParam;
+	}
+
+	public String getMaxGuestRatingParam() {
+		return maxGuestRatingParam;
 	}
 
 	public String getMaxStarRatingParam() {
@@ -94,9 +105,13 @@ public class ApiConfigService implements IApiConfigService {
 		return minGuestRatingParam;
 	}
 
-
 	public String getMinStarRatingParam() {
 		return minStarRatingParam;
+	}
+
+
+	public String getOriginCityParam() {
+		return originCityParam;
 	}
 
 	/*

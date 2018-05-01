@@ -8,15 +8,21 @@ public interface IApiConfigService {
 
 	String getDestniationParamName();
 
+	String getFlightProductType();
+
 	String getHotelProductType();
 
 	String getLengthOfStayParam();
+
+	String getMaxGuestRatingParam();
 
 	String getMaxStarRatingParam();
 
 	String getMinGuestRatingParam();
 
 	String getMinStarRatingParam();
+
+	String getOriginCityParam();
 
 	String getPageParamName();
 
@@ -33,7 +39,5 @@ public interface IApiConfigService {
 	String getUidParamName();
 
 	String getUidParamVlaue();
-
-	String getMaxGuestRatingParam();
 
 }

@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.exercise.model.FlightFilter;
 import com.exercise.model.HotelFilter;
 
 @Service("externalApiService")
@@ -19,15 +20,41 @@ public class ExternalApiService implements IExternalApiService {
 	@Autowired
 	private IApiConfigService apiConfigService;
 
+	// Create an instance of SimpleDateFormat used for formatting
+	// the string representation of date (year-month-day)
+	// to format date as per API requirements
+	private DateFormat df = new SimpleDateFormat(":yyyy-MM-dd");
+
 	private String charset = java.nio.charset.StandardCharsets.UTF_8.name();
+
+	public String getFlightOffers(FlightFilter filter) {
+		
+		// build the query parameters
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append(apiConfigService.getFlightProductType());
+
+		addQueryParameter(stringBuilder, apiConfigService.getOriginCityParam(), filter.getOrigin());
+		addQueryParameter(stringBuilder, apiConfigService.getDestniationParamName(), filter.getDestination());
+
+		// check filters for null
+/*		if (filter.getStartDate() != null) {
+			addQueryParameter(stringBuilder, apiConfigService.getStartDateParam(), df.format(filter.getStartDate()));
+		}*/
+
+		if (filter.getEndDate() != null) {
+			// calculate days difference to get length of stay
+			long diff = filter.getEndDate().getTime() - filter.getStartDate().getTime();
+			long days = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+			addQueryParameter(stringBuilder, apiConfigService.getLengthOfStayParam(), Long.toString(days));
+		}
+		
+		String query = stringBuilder.toString();
+		String response = callApi(query);
+		return response;
+	}
 
 	@Override
 	public String getHotelOffers(HotelFilter filter) {
-
-		// Create an instance of SimpleDateFormat used for formatting
-		// the string representation of date (year-month-day)
-		// to format date as per API requirements
-		DateFormat df = new SimpleDateFormat(":yyyy-MM-dd");
 
 		// build the query parameters
 		StringBuilder stringBuilder = new StringBuilder();
